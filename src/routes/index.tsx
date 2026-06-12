@@ -274,10 +274,6 @@ function Index() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -left-4 z-20 bg-card border border-border rounded-xl px-4 py-2.5 shadow-lg">
-                <p className="mono text-[10px] uppercase tracking-wider text-muted-foreground">CGPA</p>
-                <p className="font-semibold mint">3.28 / 4.0</p>
-              </div>
             </div>
           </motion.div>
         </div>
