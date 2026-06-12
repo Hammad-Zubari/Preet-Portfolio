@@ -47,7 +47,7 @@ const PROJECTS = [
     title: "AI-Powered English Learning Platform",
     role: "Final Year Project · MERN · AI / NLP",
     blurb:
-      "AI web app to improve English communication — translation, IELTS practice, role-based conversations and real-time AI feedback. Built on MERN with NLP pipelines.",
+      "Built an AI web app to improve English communication — translation, IELTS practice, role-based conversations and real-time AI feedback. Powered by the MERN stack with NLP pipelines.",
     href: "https://github.com/Preet411",
     tags: ["React", "Node", "MongoDB", "NLP"],
   },
