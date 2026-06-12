@@ -156,10 +156,10 @@ function Index() {
           </a>
           <ul className="hidden sm:flex items-center gap-6 text-sm mono">
             {[
-              ["#about", "01. About"],
-              ["#work", "02. Work"],
-              ["#skills", "03. Skills"],
-              ["#contact", "04. Contact"],
+              ["#about", "About"],
+              ["#work", "Work"],
+              ["#skills", "Skills"],
+              ["#contact", "Contact"],
             ].map(([h, l]) => (
               <li key={h}>
                 <a href={h} className="link-u text-foreground/80 hover:mint">
