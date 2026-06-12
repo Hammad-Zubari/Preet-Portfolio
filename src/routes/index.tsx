@@ -47,7 +47,7 @@ const PROJECTS = [
     title: "AI-Powered English Learning Platform",
     role: "Final Year Project · MERN · AI / NLP",
     blurb:
-      "AI web app to improve English communication — translation, IELTS practice, role-based conversations and real-time AI feedback. Built on MERN with NLP pipelines.",
+      "Built an AI web app to improve English communication — translation, IELTS practice, role-based conversations and real-time AI feedback. Powered by the MERN stack with NLP pipelines.",
     href: "https://github.com/Preet411",
     tags: ["React", "Node", "MongoDB", "NLP"],
   },
@@ -156,10 +156,10 @@ function Index() {
           </a>
           <ul className="hidden sm:flex items-center gap-6 text-sm mono">
             {[
-              ["#about", "01. About"],
-              ["#work", "02. Work"],
-              ["#skills", "03. Skills"],
-              ["#contact", "04. Contact"],
+              ["#about", "About"],
+              ["#work", "Work"],
+              ["#skills", "Skills"],
+              ["#contact", "Contact"],
             ].map(([h, l]) => (
               <li key={h}>
                 <a href={h} className="link-u text-foreground/80 hover:mint">
@@ -220,7 +220,8 @@ function Index() {
               transition={{ delay: 0.55, duration: 0.6 }}
               className="mt-6 max-w-xl text-base md:text-lg text-foreground/70 leading-relaxed"
             >
-              I&apos;m a BS Computer Science student (graduating <span className="text-foreground">May 2026</span>) with hands-on experience in the{" "}
+              I&apos;m a recent BS Computer Science graduate from{" "}
+              <span className="text-foreground">Sukkur IBA University</span> with hands-on experience in the{" "}
               <span className="mint">MERN stack</span> and a growing focus on{" "}
               <span className="mint">AI-powered applications</span>. I love building scalable, user-focused products.
             </motion.p>
@@ -273,10 +274,6 @@ function Index() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -left-4 z-20 bg-card border border-border rounded-xl px-4 py-2.5 shadow-lg">
-                <p className="mono text-[10px] uppercase tracking-wider text-muted-foreground">CGPA</p>
-                <p className="font-semibold mint">3.28 / 4.0</p>
-              </div>
             </div>
           </motion.div>
         </div>
@@ -305,10 +302,9 @@ function Index() {
         >
           <div className="md:col-span-7 space-y-4 text-base md:text-lg text-foreground/80 leading-relaxed">
             <p>
-              I&apos;m a Computer Science candidate at{" "}
-              <span className="mint">Sukkur IBA University</span>, graduating in May 2026.
-              I specialize in MERN stack development and have a growing focus on AI-powered
-              applications.
+              I&apos;m a recent Computer Science graduate from{" "}
+              <span className="mint">Sukkur IBA University</span>. I specialize in MERN stack
+              development with a growing focus on AI-powered applications.
             </p>
             <p>
               Most recently I was a <span className="mint">MERN Stack Intern at 10Pearls</span>{" "}
@@ -317,10 +313,12 @@ function Index() {
               I followed industry practices with Mocha, Chai, Jest, Pino Logger and SonarQube.
             </p>
             <p>
-              I&apos;m currently developing an{" "}
-              <span className="mint">AI-Powered English Learning Web Application</span>{" "}
-              as my Final Year Project — combining MERN with NLP for interactive language
-              practice. I love clean code, problem-solving and shipping things people use.
+              I&apos;m currently <span className="mint">available for full-time roles</span> as a{" "}
+              <span className="text-foreground">MERN Stack Developer</span>,{" "}
+              <span className="text-foreground">Full-Stack Developer</span>,{" "}
+              <span className="text-foreground">Frontend Developer</span>, or{" "}
+              <span className="text-foreground">AI / ML Engineer</span> — open to remote,
+              hybrid, or on-site opportunities.
             </p>
           </div>
 
@@ -328,7 +326,7 @@ function Index() {
             {[
               { Icon: GraduationCap, k: "Education", v: "BS Computer Science", s: "Sukkur IBA · 2022 – 2026" },
               { Icon: Briefcase, k: "Experience", v: "MERN Intern @ 10Pearls", s: "Sep 2025 – Dec 2025" },
-              { Icon: Award, k: "CGPA", v: "3.28 / 4.0", s: "Sukkur IBA University" },
+              { Icon: Award, k: "Available for", v: "Full-time roles", s: "MERN · Full-Stack · AI / ML" },
               { Icon: MapPin, k: "Location", v: "Karachi, Pakistan", s: "Open to remote / hybrid" },
             ].map(({ Icon, k, v, s }) => (
               <div

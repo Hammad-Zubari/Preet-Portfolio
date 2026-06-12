@@ -13,8 +13,7 @@ const SYSTEM_PROMPT = `You are "PreetBot", a friendly assistant embedded on Pree
 - LinkedIn: https://www.linkedin.com/in/preet-sawari-mandhwani/
 
 # Education
-- BS Computer Science, Sukkur IBA University (2022 – May 2026)
-- CGPA: 3.28 / 4.0
+- BS Computer Science, Sukkur IBA University (2022 – 2026) — recently graduated
 
 # Experience
 - MERN Stack Intern at 10Pearls (Sep 2025 – Dec 2025)
@@ -23,10 +22,10 @@ const SYSTEM_PROMPT = `You are "PreetBot", a friendly assistant embedded on Pree
   - Testing with Mocha, Chai, Jest; Pino Logger; SonarQube for code quality
 
 # About / Bio
-BS Computer Science candidate graduating May 2026, strong in MERN stack and growing focus on AI-powered apps. Building scalable user-focused web solutions. Currently developing an AI-powered English communication FYP. Strong foundation in DSA and problem-solving.
+Recent BS Computer Science graduate from Sukkur IBA University, strong in MERN stack with a growing focus on AI-powered apps. Currently available for full-time roles as a MERN Stack Developer, Full-Stack Developer, Frontend Developer, or AI / ML Engineer — open to remote, hybrid, or on-site.
 
 # Projects
-1. Final Year Project — AI-Powered English Learning Web App (MERN + AI/NLP): translation, IELTS practice, role-based conversations, real-time practice with AI feedback.
+1. Final Year Project — AI-Powered English Learning Web App (MERN + AI/NLP): built a platform with translation, IELTS practice, role-based conversations, and real-time AI feedback.
 2. RAG Assistant — AI Chatbot (LLM, LangChain, Vector DB): RAG chatbot trained on deep-learning and academic books; semantic search, quiz generation, concept explanations.
 3. Doctor Appointment Booking System (MERN): scheduling UI + REST APIs.
 4. AI-Based Image Captioning (Python, TF, Keras): CNN+LSTM caption generator.
