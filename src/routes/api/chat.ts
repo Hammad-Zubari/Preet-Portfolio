@@ -69,28 +69,38 @@ export const Route = createFileRoute("/api/chat")({
             return new Response("Messages are required", { status: 400 });
           }
 
-          const key = process.env.LOVABLE_API_KEY;
+          const apiKey = process.env.GEMINI_API_KEY;
 
-          if (!key) {
-            console.error("Missing LOVABLE_API_KEY");
-            return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+          if (!apiKey) {
+            console.error("Missing GEMINI_API_KEY");
+            return new Response("Missing GEMINI_API_KEY", { status: 500 });
           }
 
-          const gateway = createLovableAiGatewayProvider(key);
+          // Convert messages into Gemini format
+          const formattedMessages = messages.map((m) => ({
+            role: m.role,
+            content: m.parts
+              ?.map((p) => (p.type === "text" ? p.text : ""))
+              .join("") || "",
+          }));
 
           const result = streamText({
-            model: gateway("google/gemini-3-flash-preview"),
+            model: {
+              provider: "google",
+              model: "gemini-1.5-flash",
+              apiKey,
+            },
 
             system: `
 You are PreetBot, a helpful AI assistant.
 
 Important context:
-User portfolio website: https://preet-portfolio-taupe.vercel.app/
+User portfolio: https://preet-portfolio-taupe.vercel.app/
 
-Use this only when relevant to user questions.
+Only use this context when relevant.
             `,
 
-            messages,
+            messages: formattedMessages,
 
             temperature: 0.7,
 
@@ -99,9 +109,7 @@ Use this only when relevant to user questions.
             },
           });
 
-          // ✅ IMPORTANT FIX (stream compatibility)
           return result.toDataStreamResponse();
-
         } catch (err) {
           console.error("CHAT ROUTE ERROR:", err);
           return new Response("Chat failed", { status: 500 });
