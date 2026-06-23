@@ -56,25 +56,50 @@ Recent BS Computer Science graduate from Sukkur IBA University, strong in MERN s
 
 export const Route = createFileRoute("/api/chat")({
   server: {
+    runtime: "edge",
+
     handlers: {
       POST: async ({ request }) => {
         try {
-          const { messages } = (await request.json()) as { messages?: UIMessage[] };
+          const body = await request.json().catch(() => null);
+
+          const messages = body?.messages;
+
           if (!Array.isArray(messages)) {
             return new Response("Messages are required", { status: 400 });
           }
+
           const key = process.env.LOVABLE_API_KEY;
-          if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+
+          if (!key) {
+            console.error("Missing LOVABLE_API_KEY");
+            return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+          }
 
           const gateway = createLovableAiGatewayProvider(key);
+
           const result = streamText({
             model: gateway("google/gemini-3-flash-preview"),
-            system: SYSTEM_PROMPT,
-            messages: await convertToModelMessages(messages),
+
+            system: `
+You are a helpful AI assistant.
+User portfolio website: https://preet-portfolio-taupe.vercel.app/
+Use it when relevant.
+            `,
+
+            messages,
+
+            onError: (e) => {
+              console.error("STREAM ERROR:", e);
+            },
           });
-          return result.toUIMessageStreamResponse({ originalMessages: messages });
+
+          return result.toUIMessageStreamResponse({
+            originalMessages: messages,
+          });
+
         } catch (err) {
-          console.error("chat error", err);
+          console.error("CHAT ROUTE ERROR:", err);
           return new Response("Chat failed", { status: 500 });
         }
       },
