@@ -82,21 +82,25 @@ export const Route = createFileRoute("/api/chat")({
             model: gateway("google/gemini-3-flash-preview"),
 
             system: `
-You are a helpful AI assistant.
+You are PreetBot, a helpful AI assistant.
+
+Important context:
 User portfolio website: https://preet-portfolio-taupe.vercel.app/
-Use it when relevant.
+
+Use this only when relevant to user questions.
             `,
 
             messages,
+
+            temperature: 0.7,
 
             onError: (e) => {
               console.error("STREAM ERROR:", e);
             },
           });
 
-          return result.toUIMessageStreamResponse({
-            originalMessages: messages,
-          });
+          // ✅ IMPORTANT FIX (stream compatibility)
+          return result.toDataStreamResponse();
 
         } catch (err) {
           console.error("CHAT ROUTE ERROR:", err);
