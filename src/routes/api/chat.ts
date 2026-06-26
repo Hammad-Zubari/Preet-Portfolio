@@ -76,13 +76,13 @@ export const Route = createFileRoute("/api/chat")({
                 .join("") || "",
           }));
 
-          const result = streamText({
-            model: google("gemini-1.5-flash"),
-            system: SYSTEM_PROMPT,
-            messages: formattedMessages,
-          });
-
-          return result.toDataStreamResponse();
+        const result = streamText({
+          model: google("gemini-1.5-flash"),
+          system: SYSTEM_PROMPT,
+          messages: formattedMessages,
+        });
+        
+        return result.toUIMessageStreamResponse();
         } catch (error) {
           console.error(error);
           return new Response("Chat failed", {
