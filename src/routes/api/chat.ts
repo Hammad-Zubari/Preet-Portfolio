@@ -77,7 +77,7 @@ export const Route = createFileRoute("/api/chat")({
           }));
 
         const result = streamText({
-          model: google("gemini-2.5-flash"),
+          model: google("gemini-2.5-flash-lite"),
           system: SYSTEM_PROMPT,
           messages: formattedMessages,
         });
